@@ -1,9 +1,6 @@
 package mapper;
 
 import model.User;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,8 +10,5 @@ import java.util.List;
  */
 @Repository("userMapper")
 public interface UserMapper {
-    @Select("select * from user")
-    @Results(value = {@Result(id = true, property = "id", column = "id"),
-                @Result(property = "name", column = "name")})
     public List<User> selectAll();
 }

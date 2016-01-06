@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+	<!--<insert id="insert" parameterType="plan">
+		insert into plan
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+	      <if test="name != null" >name,</if>
+	      <if test="startTime != null" >startTime,</if>
+	      <if test="endTime != null" >endTime,</if>
+	      <if test="isShare != null" >isShare,</if>
+	    </trim>
+	    <trim prefix="values (" suffix=")" suffixOverrides="," >
+	      <if test="name != null" >#{name},</if>
+	      <if test="startTime != null" >#{startTime},</if>
+	      <if test="endTime != null" >#{endTime},</if>
+	      <if test="isShare != null" >#{isShare},</if>
+	    </trim>
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from plan where id=#{id}
+	</delete>
+			
+	<update id="update" parameterType="plan">
+		update plan 
+		<set>
+		   <if test="name != null" >name = #{name},</if>
+		   <if test="startTime != null" >startTime = #{startTime},</if>
+		   <if test="endTime != null" >endTime = #{endTime},</if>
+		   <if test="isShare != null" >isShare = #{isShare},</if>
+		</set>
+		where id=#{id}
+	</update>-->
+	
+	<resultMap type="user" id="BaseResultMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<!--<result property="startTime" column="startTime"/>
+		<result property="endTime" column="endTime"/>
+		<result property="isShare" column="isShare"/>-->
+	</resultMap>
+	
+	<!--<resultMap type="plan" id="selectPlan" extends="BaseResultMap">
+		<collection property="phases" ofType="phase">
+			<id property="id" column="id1"/>
+			<result property="name" column="name1"/>
+			<result property="endTime" column="endTime1"/>
+		</collection>
+	</resultMap>	
+	
+	<select id="select" parameterType="int" resultType="plan">
+		SELECT * from plan where id=#{id};
+	</select>	
+		
+	<select id="selectOne" parameterType="int" resultMap="selectPlan">
+		SELECT *,
+		phase.id id1,phase.name name1,phase.endTime endTime1  
+		from plan plan 
+		JOIN phase phase ON plan.id = phase.planId 
+		and plan.id=#{id};
+	</select>
+		
+	<select id="selectPlans"  resultMap="BaseResultMap">
+		SELECT * from plan  
+	</select>
+			
+	<select id="selectAll"  resultMap="selectPlan">
+		SELECT *,
+		phase.id id1,phase.name name1,phase.endTime endTime1
+		from plan plan 
+		JOIN phase phase ON plan.id = phase.planId
+	</select>
+	
+	<select id="selectList" resultMap="BaseResultMap" parameterType="queryHelper">
+	  	SELECT * FROM plan 
+	  	<if test="whereClause!=null">${whereClause} </if>
+	  	<if test="orderByClause!=null">${orderByClause} </if>
+	  	limit #{pageOffset},#{pageSize}
+	</select>
+	  
+	<select id="selectPageCount" resultType="int" parameterType="queryHelper">
+	  	SELECT count(*) FROM plan 
+	  	<if test="whereClause!=null">${whereClause} </if>
+	</select>-->
+
+
+	<select id="selectAll"  resultMap="BaseResultMap">
+		SELECT * from user
+	</select>
+</mapper>
